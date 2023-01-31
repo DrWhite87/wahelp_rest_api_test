@@ -19,7 +19,7 @@ $router->notFound(function (Request $request, Response $response) {
     $response->setStatusCode(Response::HTTP_NOT_FOUND);
     $response->setContent(json_encode([
         'status' => Response::HTTP_NOT_FOUND,
-        'message' => 'Looks like page not found or something went wrong. Please try again.'
+        'message' => '404. Страница не найдена'
     ]));
     return $response;
 });
@@ -29,7 +29,7 @@ $router->error(function (Request $request, Response $response, Exception $except
     $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
     $response->setContent(json_encode([
         'status' => Response::HTTP_INTERNAL_SERVER_ERROR,
-        'message' => 'Oops! Something went wrong. Please try again.',
+        'message' => '500. Внутренняя ошибка сервера',
         'error' => $exception->getMessage()
     ]));
     return $response;

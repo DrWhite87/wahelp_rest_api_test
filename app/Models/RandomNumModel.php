@@ -58,12 +58,12 @@ class RandomNumModel extends Database
 
         // если задан параметр limit, применяем к запросу
         if (!empty($options['limit']) && is_numeric($options['limit']) && $options['limit'] > 0) {
-            $queryStr .= " LIMIT " . $options['limit'];
+            $queryStr .= " LIMIT " . (int) $options['limit'];
         }
 
         // если задан параметр offset, применяем к запросу
         if (!empty($options['offset']) && is_numeric($options['offset']) && $options['offset'] >= 0) {
-            $queryStr .= " OFFSET " . $options['offset'];
+            $queryStr .= " OFFSET " . (int) $options['offset'];
         }
 
         return $this->query($queryStr)->fetchAll();
